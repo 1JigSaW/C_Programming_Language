@@ -10,11 +10,11 @@ int main()
 	int c = 0;
 	int arr[127];
 	for (int i = 0; i < 128; i++)
-		arr[i] = '0';
+		arr[i] = 0;
 	while ((c = getchar()) != EOF)
     	{
         	if (c < 128)    
-            		++arr[c]; 
+			++arr[c]; 
     	}
      
     	for (int i = 32; i < 127; ++i)
