@@ -12,6 +12,7 @@ double last;
 
 int getch(void);
 void ungetch(int);
+void ungets(char s[]);
 
 int sp = 0; /* следующая свободная позиция в стеке */
 double val[ MAXVAL ]; /* стек */
@@ -41,6 +42,14 @@ void ungetch(int c) /* вернуть символ на ввод */
 		printf ("ungetch: слишком много символов\n");
 	else
 		buf[bufp++] = c;
+}
+
+void ungets(char s[]) 
+{
+	int len = strlen(s);
+	while (len > 0) {
+		ungetch(s[--len]);
+	}
 }
 
 /* калькулятор с обратной польской записью */
